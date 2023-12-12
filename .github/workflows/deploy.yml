@@ -15,6 +15,17 @@ jobs:
 
     - name: Set up Python
       uses: actions/setup-python@v2
+      with:
+        python-version: 3.8  # Choose the Python version you need
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/*.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
 
     - name: Install dependencies
       run: |
@@ -29,36 +40,4 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor }}@users.noreply.github.com"
         
-        # git checkout -b production
-        # find . -type f ! -path './site*' ! -path './.*' -exec echo {} +
-        # find . -type f ! -path './site*' ! -path './.*' -exec rm -f {} +
-        # rm -rf docs 
-        # mv site docs
-        # touch .nojekyll
-        # git add .
-        # git commit -m "Content update"
-
-        git fetch --all
-    
-        # Check if there are any local changes
-        if [ -n "$(git status --porcelain)" ]; then
-        # If there are changes, commit them
-        git add .
-        git commit -m "Committing local changes before switching branches"
-        else
-        echo "No local changes to commit."
-        fi
-        
-        git checkout production
-
-        # Remove files and directories from the production branch
-        git rm -r --ignore-unmatch */*
-
-        git checkout main -- site
-
-        
-        # git mv site docs
-        git add -A
-        git commit -m "Content update"
-        
-        git push 
+        # Your existing script to force push to the documentation branch
