@@ -4,8 +4,18 @@
 
 
 Contents for the MIPCVs wiki. See [wiki.mipcvs.dev](https://wiki.mipcvs.dev/)
+
 ---
 
+## What? 
+This repository updates the wiki for CV updates. It contains infomration that will be used to inform the submission process and caviats in relation to this. The intuitive markdown format and open source (github repo) format allow relevant leads and users to update the documentation in real time.
+
+The files within here consist of a nested structure on markdown files, that may be downloaded and distributed with the software. These can be found within the `docs` folder. T
+
+A secondary technical wiki outlining how to change the intircasies of mkdoc and other tools will be available at developer.mipcvs.dev. 
+
+
+---
 
 ## Editing the documentation.
     Docmentation is found in the `docs` folder with the file names and hierarchy affecting the navigational menu. 
